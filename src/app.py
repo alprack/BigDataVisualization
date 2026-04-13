@@ -14,7 +14,6 @@ else:
     st.info("Using default Tesla dataset")
     df = pd.read_csv("data/tsla.us.txt")
 
-# 🔴 REQUIRED COLUMN CHECK
 required_columns = ["Date", "Close"]
 
 if not all(col in df.columns for col in required_columns):
@@ -25,7 +24,6 @@ if not all(col in df.columns for col in required_columns):
 df["Date"] = pd.to_datetime(df["Date"])
 df = df.sort_values("Date")
 
-# ⭐ BONUS: column selection
 value_column = st.selectbox("Select value column", df.columns, index=list(df.columns).index("Close"))
 
 # Date filter
